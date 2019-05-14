@@ -1,0 +1,59 @@
+\documentclass[a4paper,12pt,titlepage,twoside,openany]{book}
+\usepackage{epsfig}
+\usepackage{plain}
+\usepackage{setspace}
+\usepackage[paperheight=29.7cm,paperwidth=21cm,outer=2cm,inner=2.5cm,top=2.5cm,bottom=3cm]{geometry}
+\usepackage{titlesec}
+\usepackage{ragged2e}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage{apacite}
+\usepackage{booktabs}
+\usepackage{newtxtext,newtxmath}
+\usepackage[utf8x]{inputenc}
+\singlespacing
+%\renewcommand{\baselinestretch}{1.5} 
+\begin{document}
+    \pagenumbering{gobble} 
+    \input{cover.tex}
+    \cleardoublepage
+    \input{firstPage.tex}
+    \newpage
+	\cleardoublepage
+	\flushright{\textit{“Something artistic here” }}
+	\flushleft
+	\cleardoublepage
+	\include{abstract}
+	\clearpage
+    \mainmatter
+      \tableofcontents
+      \listoffigures
+      \addcontentsline{toc}{chapter}{List of Figures}
+      \clearpage
+      \listoftables
+      \addcontentsline{toc}{chapter}{List of Tables}
+        \begingroup
+        \titleformat{\chapter}
+          {\normalfont\Huge\bfseries}{\thechapter}{1em}{}
+          \titlespacing*{\chapter}{0pt}{0.59in}{0.02in}
+          \titlespacing*{\section}{0pt}{0.20in}{0.02in}
+          \titlespacing*{\subsection}{0pt}{0.10in}{0.02in}
+        \cleardoublepage
+        \justify
+        
+		\pagestyle{plain}
+        \input{Chapter1.tex} \cleardoublepage
+      \endgroup
+      \addcontentsline{toc}{chapter}{References}
+      \bibliographystyle{apacite}
+      \cleardoublepage
+      \bibliography{biblio}
+      \titleformat{\chapter}
+          {\normalfont\Large\bfseries}{Appendix\thechapter}{1em}{}
+      \appendix
+      \cleardoublepage
+      \input{Appendix.tex}
+      %\cleardoublepage
+      %\input{ringraziamenti}
+\end{document}
