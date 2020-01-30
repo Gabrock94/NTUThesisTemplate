@@ -1,14 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-% A Latex template for NTU's thesis, based on the sample available online:
-% http://www.ntu.edu.sg/Students/Graduate/AcademicServices/Thesis/Pages/Formatoffinalthesis.aspx
-% http://www.ntu.edu.sg/sasd/oas/ge/Documents/FormatofThesis_Sample_Oct2017.pdf
-%
-% Author: Giulio Gabrieli, giulio001@e.ntu.edu.sg
-% GitHub: https://github.com/Gabrock94/NTUThesisTemplate
-% Version 0.0.1 - Last Edit May 28, 2019
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[a4paper,12pt,titlepage,twoside,openany]{book}
 \usepackage{epsfig}
 \usepackage{plain}
@@ -23,6 +12,9 @@
 \usepackage{booktabs}
 \usepackage{newtxtext,newtxmath}
 \usepackage[utf8x]{inputenc}
+\usepackage{setspace} %used for double spacing between lines
+\usepackage{adjustbox}
+\usepackage[toc,page]{appendix}
 \singlespacing
 %\renewcommand{\baselinestretch}{1.5} 
 \begin{document}
@@ -32,7 +24,7 @@
     \input{firstPage.tex}
     \newpage
 	\cleardoublepage
-	\flushright{\textit{“Kopi peng lah"\\G.G.}}
+	\flushright{\textit{“A fancy quote.”}\\from a fancy author}
 	\flushleft
 	\cleardoublepage
 	\include{abstract}
@@ -54,20 +46,27 @@
         \justify
         
 		\pagestyle{plain}
+        \doublespacing
+        \input{todo.tex} \cleardoublepage
+        \input{LayAbstract.tex} \cleardoublepage
+        \addcontentsline{toc}{chapter}{Lay Abstract}
+        \input{Abstract.tex} \cleardoublepage
+        \addcontentsline{toc}{chapter}{Abstract}
         \input{Chapter1.tex} \cleardoublepage
+        \input{Chapter2.tex} \cleardoublepage
+        \input{Chapter3.tex} \cleardoublepage
+        \input{Chapter4.tex} \cleardoublepage
+        \input{Appendix1.tex} \cleardoublepage
       \endgroup
       
-      \addcontentsline{toc}{chapter}{Bibliography}
+      \addcontentsline{toc}{chapter}{References}
       \bibliographystyle{apacite}
       \cleardoublepage
-
       \bibliography{biblio}
-    
+      
+      
       \titleformat{\chapter}
           {\normalfont\Large\bfseries}{Appendix\thechapter}{1em}{}
       \appendix
       \cleardoublepage
-      \input{Appendix.tex}
-      %\cleardoublepage
-      %\input{ringraziamenti}
 \end{document}
